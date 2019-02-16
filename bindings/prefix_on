@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPTS_DIR="$CURRENT_DIR/../scripts"
+
+source "$SCRIPTS_DIR/tmux_options.sh"
+source "$SCRIPTS_DIR/display_icon.sh"
+
+main (){
+    reset_tmux_option "prefix"
+    reset_tmux_option "key-table"
+    reset_tmux_option "status-right"
+    tmux refresh-client -S
+    display_icon
+}
+main
